@@ -1,15 +1,22 @@
 {
+  // These tasks will run in order when initializing your CodeSandbox project.
   "setupTasks": [
+    {
+      "name": "Running containers",
+      "command": "CSB_RUN_OUTSIDE_CONTAINER=1 /usr/bin/pitcher containers up --workspace /project/rqb-codesandbox-bun-test",
+      "unconfigured": true
+    },
     {
       "name": "Install Dependencies",
       "command": "bun install"
     }
   ],
+
+  // These tasks can be run from CodeSandbox. Running one will open a log in the app.
   "tasks": {
     "build": {
       "name": "build",
-      "command": "bun run build",
-      "runAtStart": false
+      "command": "bun run build"
     },
     "dev": {
       "name": "dev",
@@ -21,8 +28,7 @@
     },
     "preview": {
       "name": "preview",
-      "command": "bun run preview",
-      "runAtStart": false
+      "command": "bun run preview"
     }
   }
 }
